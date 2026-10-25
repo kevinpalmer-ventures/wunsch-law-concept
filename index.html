@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Divorce &amp; Custody Attorney in Erwin, NC | Chad Wunsch Law (Concept)</title>
 <meta name="description" content="Chad Wunsch Law — divorce and family law in Erwin, NC, 15 minutes from the Harnett County Courthouse. Nearly 20 years of family law experience. Call 910-292-0442.">
-<meta name="theme-color" content="#14213d">
+<meta name="theme-color" content="#078986">
 <link rel="preload" href="mockup/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="mockup/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -15,145 +15,155 @@
 
 <style>
 @font-face{font-family:"Fraunces";src:url("mockup/fonts/fraunces-var.woff2") format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:"Libre Baskerville";src:url("mockup/fonts/librebaskerville-var.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Libre Baskerville";src:url("mockup/fonts/librebaskerville-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:"Inter";src:url("mockup/fonts/inter-var.woff2") format("woff2");font-weight:300 700;font-display:swap}
 
+/* Brand palette pulled from chadwunschlaw.com (Squarespace site styles + logo) */
 :root{
-  --navy:#14213d; --navy-2:#1d2d4f; --slate:#3c4a5e; --ink:#1f2633; --muted:#4d5869;
-  --sand:#f6f1e8; --sand-2:#ede4d4; --line:#e2d7c3; --gold:#c9a15a; --gold-2:#b88a3e; --gold-ink:#7e5a1c;
-  --white:#fff; --radius:14px; --shadow:0 10px 30px -12px rgba(20,33,61,.22);
+  --teal:#078986;      /* site accent / primary button  hsl(178.62,90.28%,28.24%) */
+  --teal-ink:#067977;  /* same hue, 3% darker -> AA (5.2:1) for small text + white-on-teal buttons */
+  --teal-deep:#05605e; /* hover / CTA band end */
+  --teal-tint:#a6dedb; /* light teal for accents on dark sections (4.6:1 on charcoal) */
+  --charcoal:#535c5c;  /* site darkAccent  hsl(180,5.14%,34.31%)  - dark sections + footer */
+  --charcoal-2:#454d4d;
+  --ink:#000000;       /* site headings + body text */
+  --muted:#535c5c;     /* secondary text */
+  --mint:#e5f1f0;      /* site lightAccent hsl(175,30%,92.16%) - light sections */
+  --mint-2:#d3e7e5; --line:#c9dfdc;
+  --white:#fff; --radius:14px; --shadow:0 10px 30px -12px rgba(30,42,42,.25);
   --serif:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Libre Baskerville", Georgia, "Times New Roman", serif;
   --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --wrap:1180px;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--white);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--white);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
-h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--navy);line-height:1.15;letter-spacing:-.01em;margin:0 0 .5em}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--ink);line-height:1.15;letter-spacing:-.01em;margin:0 0 .5em}
 h2{font-size:clamp(1.9rem,1.3rem + 2vw,2.75rem)}
 h3{font-size:1.3rem}
 p{margin:0 0 1em}
-a{color:var(--navy)}
+a{color:var(--teal-ink)}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
-.eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:.9rem}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-ink);margin-bottom:.9rem;font-family:var(--sans)}
 .section{padding:clamp(64px,8vw,112px) 0}
 .section-head{max-width:680px;margin-bottom:48px}
 .section-head p{color:var(--muted);font-size:1.08rem}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* Focus */
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
-.skip{position:absolute;left:16px;top:-60px;background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;z-index:100;text-decoration:none}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.hero :focus-visible,.review :focus-visible,.cta-band :focus-visible,.site-footer :focus-visible,.concept :focus-visible{outline-color:#fff}
+.skip{position:absolute;left:16px;top:-60px;background:var(--charcoal);color:#fff;padding:10px 16px;border-radius:8px;z-index:100;text-decoration:none}
 .skip:focus{top:12px}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font:600 1rem/1 var(--sans);padding:15px 24px;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s ease, background-color .2s ease, box-shadow .2s ease, color .2s ease}
 .btn svg{width:18px;height:18px;flex:none}
-.btn-gold{background:var(--gold);color:var(--navy)}
-.btn-gold:hover{background:#d6b06c;transform:translateY(-1px);box-shadow:0 8px 20px -8px rgba(201,161,90,.7)}
-.btn-navy{background:var(--navy);color:#fff}
-.btn-navy:hover{background:var(--navy-2);transform:translateY(-1px)}
+.btn-primary{background:var(--teal-ink);color:#fff}
+.btn-primary:hover{background:var(--teal-deep);transform:translateY(-1px);box-shadow:0 8px 20px -8px rgba(7,137,134,.7)}
+.btn-dark{background:var(--charcoal);color:#fff}
+.btn-dark:hover{background:var(--charcoal-2);transform:translateY(-1px)}
 .btn-ghost{border-color:rgba(255,255,255,.55);color:#fff}
 .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
 
 /* Concept banner */
-.concept{background:#7e5a1c;color:#fff;font-size:.88rem;text-align:center;padding:9px 16px;line-height:1.4}
-.concept a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-left:.35em;white-space:nowrap}
+.concept{background:#000;color:#fff;border-bottom:3px solid var(--teal);font-size:.88rem;text-align:center;padding:9px 16px;line-height:1.4}
+.concept a{color:var(--teal-tint);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-left:.35em;white-space:nowrap}
 .concept a:focus-visible{outline-color:#fff}
 
 /* Header */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s, box-shadow .3s}
-.site-header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(20,33,61,.4)}
+.site-header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(30,42,42,.45)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px;max-width:1340px}
 .brand,.nav a,.btn{white-space:nowrap}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
-.brand-mark{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:.02em}
-.brand-text{display:flex;flex-direction:column;line-height:1.15}
-.brand-name{font-family:var(--serif);font-size:1.3rem;font-weight:600}
-.brand-sub{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.brand{display:flex;align-items:center;text-decoration:none;flex:none}
+.brand-logo{height:54px;width:auto;display:block}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
-.nav a{text-decoration:none;font-size:.95rem;font-weight:500;color:var(--slate);position:relative;padding:6px 0}
-.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nav a{text-decoration:none;font-size:.92rem;font-weight:400;font-family:var(--body);color:var(--ink);position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
 .nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1)}
 .header-cta{display:flex;align-items:center;gap:12px}
 .header-cta .btn{padding:12px 18px;font-size:.95rem}
 .call-label-short{display:none}
 
 /* Hero */
-.hero{position:relative;color:#fff;overflow:hidden;background:var(--navy)}
+.hero{position:relative;color:#fff;overflow:hidden;background:#0c1414}
 .hero-media{position:absolute;inset:0}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;animation:heroZoom 18s ease-out both}
 @keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,24,46,.92) 0%,rgba(14,24,46,.78) 38%,rgba(14,24,46,.25) 75%,rgba(14,24,46,.1) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,18,18,.9) 0%,rgba(10,18,18,.74) 38%,rgba(10,18,18,.22) 75%,rgba(10,18,18,.08) 100%)}
 .hero-inner{position:relative;z-index:1;padding:clamp(80px,11vw,150px) 24px clamp(90px,11vw,140px)}
 .hero-copy{max-width:640px}
-.hero .eyebrow{color:var(--gold)}
+.hero .eyebrow{color:var(--teal-tint)}
 .hero h1{color:#fff;font-size:clamp(2.4rem,1.4rem + 3.6vw,4.1rem);font-weight:500;margin-bottom:.4em}
-.hero h1 em{font-style:italic;color:#ecd7ad;font-weight:400}
-.hero-lead{font-size:clamp(1.05rem,1rem + .3vw,1.25rem);color:#e6e9ef;max-width:560px;margin-bottom:2rem}
+.hero h1 em{font-style:italic;color:var(--teal-tint);font-weight:400}
+.hero-lead{font-size:clamp(1.05rem,1rem + .3vw,1.25rem);color:#eef6f5;max-width:560px;margin-bottom:2rem}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
-.hero-facts{display:flex;flex-wrap:wrap;gap:12px 28px;margin:2.4rem 0 0;padding:0;list-style:none;font-size:.93rem;color:#dfe3ea}
+.hero-facts{display:flex;flex-wrap:wrap;gap:12px 28px;margin:2.4rem 0 0;padding:0;list-style:none;font-size:.93rem;color:#e5f1f0}
 .hero-facts li{display:flex;align-items:center;gap:.5em}
-.hero-facts svg{width:18px;height:18px;color:var(--gold);flex:none}
+.hero-facts svg{width:18px;height:18px;color:var(--teal-tint);flex:none}
 
 /* Intro */
-.intro{background:var(--sand) url("mockup/sand-texture.jpg");background-size:512px}
+.intro{background:linear-gradient(rgba(229,241,240,.88),rgba(229,241,240,.88)),url("mockup/sand-texture.jpg") var(--mint);background-size:auto,512px}
 .intro-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
 .intro-figure{position:relative;margin:0}
 .intro-figure img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:4/3;object-fit:cover;width:100%}
-.intro-figure figcaption{position:absolute;left:-18px;bottom:-22px;background:var(--navy);color:#fff;padding:18px 22px;border-radius:12px;max-width:250px;box-shadow:var(--shadow);font-family:var(--serif);font-size:1.05rem;line-height:1.35}
-.intro-figure figcaption strong{display:block;font-size:2rem;color:var(--gold);font-weight:500}
-.intro blockquote{margin:0 0 1.2em;font-family:var(--serif);font-size:clamp(1.5rem,1.1rem + 1.4vw,2.1rem);line-height:1.25;color:var(--navy)}
+.intro-figure figcaption{position:absolute;left:-18px;bottom:-22px;background:var(--charcoal);color:#fff;padding:18px 22px;border-radius:12px;max-width:250px;box-shadow:var(--shadow);font-family:var(--serif);font-size:1.05rem;line-height:1.35}
+.intro-figure figcaption strong{display:block;font-size:2rem;color:var(--teal-tint);font-weight:500}
+.intro blockquote{margin:0 0 1.2em;font-family:var(--serif);font-size:clamp(1.5rem,1.1rem + 1.4vw,2.1rem);line-height:1.25;color:var(--ink)}
 .intro p{color:var(--muted)}
 .intro .btn{margin-top:.5rem}
 
 /* Practice areas */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;display:flex;flex-direction:column}
-.card:hover,.card:focus-within{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d6c4a2}
-.card-icon{width:52px;height:52px;border-radius:12px;background:var(--sand);display:grid;place-items:center;color:var(--gold-ink);margin-bottom:18px}
+.card:hover,.card:focus-within{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--teal)}
+.card-icon{width:52px;height:52px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--teal-ink);margin-bottom:18px}
 .card-icon svg{width:26px;height:26px}
 .card p{color:var(--muted);font-size:.98rem;flex:1}
-.card a{font-weight:600;font-size:.95rem;text-decoration:none;color:var(--navy);display:inline-flex;gap:.4em;align-items:center}
+.card a{font-weight:600;font-size:.95rem;text-decoration:none;color:var(--teal-ink);font-family:var(--sans);display:inline-flex;gap:.4em;align-items:center}
 .card a span{transition:transform .2s}
 .card a:hover span{transform:translateX(3px)}
 .cards-note{margin-top:28px;color:var(--muted);font-size:.98rem}
 
 /* Review */
-.review{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-.review::before{content:"\201C";position:absolute;font-family:var(--serif);font-size:28rem;line-height:1;color:rgba(201,161,90,.08);top:-3rem;left:2%;pointer-events:none}
-.review .eyebrow{color:var(--gold)}
+.review{background:var(--charcoal);color:#fff;position:relative;overflow:hidden}
+.review::before{content:"\201C";position:absolute;font-family:var(--serif);font-size:28rem;line-height:1;color:rgba(166,222,219,.10);top:-3rem;left:2%;pointer-events:none}
+.review .eyebrow{color:var(--teal-tint)}
 .review h2{color:#fff}
 .review-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:start;position:relative}
-.review-side p{color:#c9d0dc}
+.review-side p{color:var(--mint)}
 .review-card{background:#fff;color:var(--ink);border-radius:18px;padding:clamp(28px,4vw,44px);box-shadow:0 30px 60px -30px rgba(0,0,0,.5);margin:0}
 .review-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
 .stars{display:flex;gap:3px;color:#f4b400}
 .stars svg{width:22px;height:22px}
 .g-badge{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--muted)}
 .g-badge svg{width:20px;height:20px}
-.review-card blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.12rem,1rem + .5vw,1.35rem);line-height:1.55;color:var(--navy)}
+.review-card blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.12rem,1rem + .5vw,1.35rem);line-height:1.55;color:var(--ink)}
 .review-card figcaption{margin-top:22px;display:flex;align-items:center;gap:12px;font-weight:600}
 .review-card figcaption .avatar{width:42px;height:42px;border-radius:50%;background:#e8eaf6;color:#3949ab;display:grid;place-items:center;font-weight:600}
 .review-card figcaption small{display:block;font-weight:400;color:var(--muted)}
 
 /* Team */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.member{text-align:center;padding:36px 24px;border-radius:var(--radius);background:var(--sand);border:1px solid var(--line)}
-.member .initials{width:112px;height:112px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:2.2rem;color:var(--navy);background:linear-gradient(145deg,#fff 0%,#ead9b9 100%);box-shadow:inset 0 0 0 4px #fff, 0 8px 18px -10px rgba(20,33,61,.4)}
-.member.lead .initials{background:linear-gradient(145deg,var(--navy-2),var(--navy));color:var(--gold)}
+.member{text-align:center;padding:36px 24px;border-radius:var(--radius);background:var(--mint);border:1px solid var(--line)}
+.member .initials{width:112px;height:112px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:2.2rem;color:var(--teal-ink);background:linear-gradient(145deg,#fff 0%,var(--mint-2) 100%);box-shadow:inset 0 0 0 4px #fff, 0 8px 18px -10px rgba(30,42,42,.4)}
+.member.lead .initials{background:linear-gradient(145deg,var(--teal),var(--teal-ink));color:#fff}
 .member h3{margin-bottom:.15em}
-.member .role{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-ink)}
+.member .role{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;font-family:var(--sans);color:var(--teal-ink)}
 .member p{color:var(--muted);font-size:.95rem;margin:.9em 0 0}
 
 /* Consultation */
-.consult{background:var(--sand) url("mockup/sand-texture.jpg");background-size:512px}
+.consult{background:linear-gradient(rgba(229,241,240,.88),rgba(229,241,240,.88)),url("mockup/sand-texture.jpg") var(--mint);background-size:auto,512px}
 .consult-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,64px);align-items:start}
 .contact-list{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:18px}
 .contact-list li{display:flex;gap:14px;align-items:flex-start}
-.contact-list .ic{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;flex:none}
+.contact-list .ic{width:44px;height:44px;border-radius:50%;background:var(--teal-ink);color:#fff;display:grid;place-items:center;flex:none}
 .contact-list .ic svg{width:20px;height:20px}
-.contact-list strong{display:block;color:var(--navy);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.contact-list strong{display:block;color:var(--charcoal);font-family:var(--sans);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
 .contact-list a{font-weight:600;text-decoration:none}
 .contact-list a:hover{text-decoration:underline}
 .form-card{background:#fff;border-radius:18px;padding:clamp(24px,4vw,40px);box-shadow:var(--shadow);border:1px solid var(--line)}
@@ -161,14 +171,14 @@ a{color:var(--navy)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field.full{grid-column:1/-1}
-label,.legend{font-size:.9rem;font-weight:600;color:var(--navy)}
+label,.legend{font-size:.9rem;font-weight:600;font-family:var(--sans);color:var(--ink)}
 .req{color:#a4361c}
-input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:#fbf9f5;border:1.5px solid #cfc3ad;border-radius:10px;padding:12px 14px;width:100%;transition:border-color .2s, box-shadow .2s, background-color .2s}
-input:hover,select:hover,textarea:hover{border-color:#b49f7b}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(201,161,90,.45);background:#fff}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:#f7fbfb;border:1.5px solid #6f9996;border-radius:10px;padding:12px 14px;width:100%;transition:border-color .2s, box-shadow .2s, background-color .2s}
+input:hover,select:hover,textarea:hover{border-color:var(--teal)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal-ink);box-shadow:0 0 0 3px rgba(7,137,134,.3);background:#fff}
 textarea{min-height:110px;resize:vertical}
 .check{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:var(--muted);font-weight:400}
-.check input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--navy)}
+.check input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--teal-ink)}
 .form-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px}
 .form-foot small{color:var(--muted);max-width:340px}
 .form-status{margin-top:16px;padding:14px 16px;border-radius:10px;background:#eef5ee;color:#1f5130;border:1px solid #bcd8c2;display:none}
@@ -177,15 +187,15 @@ textarea{min-height:110px;resize:vertical}
 /* Service area */
 .area-banner{position:relative;height:clamp(220px,28vw,360px);overflow:hidden}
 .area-banner img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
-.area-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,33,61,0) 40%,rgba(255,255,255,1) 100%)}
+.area-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 40%,rgba(255,255,255,1) 100%)}
 .area{padding-top:0}
 .area-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,64px);align-items:start;margin-top:-40px;position:relative;z-index:1}
 .towns{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:24px 0 28px}
-.towns li{padding:9px 16px;border-radius:999px;background:var(--sand);border:1px solid var(--line);font-size:.95rem;font-weight:500;color:var(--navy)}
-.towns li.hq{background:var(--navy);color:#fff;border-color:var(--navy)}
-.courthouse{display:flex;gap:14px;align-items:center;padding:18px 20px;border-left:4px solid var(--gold);background:#fff;box-shadow:var(--shadow);border-radius:0 12px 12px 0}
-.courthouse svg{width:30px;height:30px;color:var(--gold-ink);flex:none}
-.map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--sand-2);aspect-ratio:4/3}
+.towns li{padding:9px 16px;border-radius:999px;background:var(--mint);border:1px solid var(--line);font-size:.95rem;font-weight:500;color:var(--ink)}
+.towns li.hq{background:var(--teal-ink);color:#fff;border-color:var(--teal-ink)}
+.courthouse{display:flex;gap:14px;align-items:center;padding:18px 20px;border-left:4px solid var(--teal);background:#fff;box-shadow:var(--shadow);border-radius:0 12px 12px 0}
+.courthouse svg{width:30px;height:30px;color:var(--teal-ink);flex:none}
+.map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--mint-2);aspect-ratio:4/3}
 .map iframe{width:100%;height:100%;border:0;display:block}
 
 /* FAQ */
@@ -193,33 +203,34 @@ textarea{min-height:110px;resize:vertical}
 .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,64px)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq details:first-of-type{border-top:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;font-family:var(--serif);font-size:1.18rem;color:var(--navy);font-weight:500}
+.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;font-family:var(--serif);font-size:1.18rem;color:var(--ink);font-weight:400}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:2px solid var(--gold-ink);border-bottom:2px solid var(--gold-ink);transform:translateY(-70%) rotate(45deg);transition:transform .25s ease}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:2px solid var(--teal-ink);border-bottom:2px solid var(--teal-ink);transform:translateY(-70%) rotate(45deg);transition:transform .25s ease}
 .faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
-.faq summary:hover{color:var(--gold-ink)}
+.faq summary:hover{color:var(--teal-ink)}
 .faq .answer{padding:0 0 22px;color:var(--muted)}
-.disclaimer{margin-top:24px;font-size:.88rem;color:var(--muted);background:var(--sand);border-radius:10px;padding:14px 16px}
+.disclaimer{margin-top:24px;font-size:.88rem;color:var(--muted);background:var(--mint);border-radius:10px;padding:14px 16px}
 
 /* CTA band */
-.cta-band{background:linear-gradient(120deg,var(--navy) 0%,#22365e 100%);color:#fff;padding:56px 0}
+.cta-band{background:linear-gradient(120deg,var(--teal-ink) 0%,var(--teal-deep) 100%);color:#fff;padding:56px 0}
 .cta-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .cta-band h2{color:#fff;margin:0;font-size:clamp(1.6rem,1.2rem + 1.4vw,2.3rem)}
-.cta-band p{margin:.4em 0 0;color:#c9d0dc}
+.cta-band p{margin:.4em 0 0;color:#eef6f5}
+.cta-band .btn-primary{background:#fff;color:var(--teal-ink)}
+.cta-band .btn-primary:hover{background:var(--mint);box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
 .cta-band .actions{display:flex;gap:12px;flex-wrap:wrap}
 
 /* Footer */
-.site-footer{background:#0e182e;color:#b9c2d0;padding:64px 0 28px;font-size:.95rem}
+.site-footer{background:var(--charcoal);color:var(--mint);padding:64px 0 28px;font-size:.95rem}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
 .site-footer h3{color:#fff;font-family:var(--sans);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:1em}
 .site-footer a{color:#fff;text-decoration:none}
 .site-footer a:hover{text-decoration:underline}
 .site-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .site-footer address{font-style:normal}
-.site-footer .brand{color:#fff;margin-bottom:14px}
-.site-footer .brand-sub{color:#9aa5b6}
-.site-footer .brand-mark{box-shadow:inset 0 0 0 1.5px var(--gold)}
-.footer-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem;color:#8f9ab0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.site-footer .brand{display:inline-flex;background:#fff;padding:12px 16px;border-radius:12px;margin-bottom:16px}
+.site-footer .brand-logo{height:46px}
+.footer-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);font-size:.82rem;color:#d3e7e5;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* Mobile call bar */
 .mobile-bar{display:none}
@@ -238,11 +249,11 @@ textarea{min-height:110px;resize:vertical}
 
 /* Responsive */
 @media (max-width:1240px){
-  .header-cta .btn-navy{display:none}
+  .header-cta .btn-dark{display:none}
 }
 @media (max-width:1000px){
   .nav{display:none}
-  .header-cta .btn-navy{display:inline-flex}
+  .header-cta .btn-dark{display:inline-flex}
 }
 @media (max-width:900px){
   .intro-grid,.review-grid,.consult-grid,.area-grid,.faq-grid{grid-template-columns:1fr}
@@ -254,20 +265,18 @@ textarea{min-height:110px;resize:vertical}
 @media (max-width:640px){
   body{font-size:16px;padding-bottom:72px}
   .header-inner{height:66px}
-  .brand-mark{width:38px;height:38px;font-size:1rem}
-  .brand-name{font-size:1.1rem}
-  .brand-sub{font-size:.62rem}
-  .header-cta .btn-navy{display:none}
+  .brand-logo{height:38px}
+  .header-cta .btn-dark{display:none}
   .header-cta .btn{padding:10px 14px}
   .call-label-long{display:none}.call-label-short{display:inline}
-  .hero::after{background:linear-gradient(180deg,rgba(14,24,46,.55) 0%,rgba(14,24,46,.85) 55%,rgba(14,24,46,.95) 100%)}
+  .hero::after{background:linear-gradient(180deg,rgba(10,18,18,.55) 0%,rgba(10,18,18,.85) 55%,rgba(10,18,18,.95) 100%)}
   .hero-media img{object-position:30% 50%}
   .hero-actions .btn{flex:1 1 100%}
   .cards,.team-grid,.form-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .intro-figure figcaption{position:relative;left:auto;bottom:auto;margin:-36px 16px 0;max-width:none}
   .cta-band .actions .btn{flex:1 1 100%}
-  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);box-shadow:0 -8px 20px -14px rgba(20,33,61,.5)}
+  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);box-shadow:0 -8px 20px -14px rgba(30,42,42,.5)}
   .mobile-bar .btn{padding:13px 10px}
 }
 </style>
@@ -279,8 +288,7 @@ textarea{min-height:110px;resize:vertical}
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="#top" aria-label="Chad Wunsch Law, home">
-      <span class="brand-mark" aria-hidden="true">CW</span>
-      <span class="brand-text"><span class="brand-name">Chad Wunsch Law</span><span class="brand-sub">Divorce &amp; Family Law</span></span>
+      <img class="brand-logo" src="mockup/chad-wunsch-logo.png" width="800" height="173" alt="Chad Wunsch Divorce &amp; Family Law">
     </a>
     <nav class="nav" aria-label="Primary">
       <ul>
@@ -292,8 +300,8 @@ textarea{min-height:110px;resize:vertical}
       </ul>
     </nav>
     <div class="header-cta">
-      <a class="btn btn-navy" href="#consult">Request a Consultation</a>
-      <a class="btn btn-gold" href="tel:+19102920442" aria-label="Call Chad Wunsch Law at 910-292-0442">
+      <a class="btn btn-dark" href="#consult">Request a Consultation</a>
+      <a class="btn btn-primary" href="tel:+19102920442" aria-label="Call Chad Wunsch Law at 910-292-0442">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
         <span class="call-label-long">910-292-0442</span><span class="call-label-short">Call</span>
       </a>
@@ -313,7 +321,7 @@ textarea{min-height:110px;resize:vertical}
         <h1 id="hero-title" class="reveal reveal-d1">Divorce &amp; Custody Attorney Serving <em>Harnett County</em></h1>
         <p class="hero-lead reveal reveal-d2">Where experience and compassion meet. With nearly 20 years in family law, Attorney Chad Wunsch helps you understand your options and move forward with a plan.</p>
         <div class="hero-actions reveal reveal-d3">
-          <a class="btn btn-gold" href="#consult">Request a Consultation</a>
+          <a class="btn btn-primary" href="#consult">Request a Consultation</a>
           <a class="btn btn-ghost" href="tel:+19102920442">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
             Call 910-292-0442</a>
@@ -339,7 +347,7 @@ textarea{min-height:110px;resize:vertical}
         <blockquote>&ldquo;We understand each situation is unique.&rdquo;</blockquote>
         <p>Family law matters touch the parts of life that matter most &mdash; your children, your home, and your future. Attorney Chad Wunsch is highly qualified to zealously represent you, and our small team works to keep you informed at every step.</p>
         <p><strong>Unsure of what your exact needs are?</strong> Give us a call and we can help you understand your options.</p>
-        <a class="btn btn-navy" href="tel:+19102920442">Talk with our office</a>
+        <a class="btn btn-dark" href="tel:+19102920442">Talk with our office</a>
       </div>
     </div>
   </section>
@@ -506,7 +514,7 @@ textarea{min-height:110px;resize:vertical}
           </div>
           <div class="form-foot">
             <small>We typically respond during business hours.<!-- PLACEHOLDER: confirm response-time wording --></small>
-            <button class="btn btn-gold" type="submit">Request Consultation</button>
+            <button class="btn btn-primary" type="submit">Request Consultation</button>
           </div>
           <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
         </form>
@@ -527,7 +535,7 @@ textarea{min-height:110px;resize:vertical}
         </ul>
         <div class="courthouse">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M4 10h16M12 3l9 5H3zM6 10v8M10 10v8M14 10v8M18 10v8"/></svg>
-          <div><strong style="color:var(--navy)">Only 15 minutes</strong> from the Harnett County Courthouse.</div>
+          <div><strong style="color:var(--ink)">Only 15 minutes</strong> from the Harnett County Courthouse.</div>
         </div>
       </div>
       <div class="map reveal reveal-d1">
@@ -579,7 +587,7 @@ textarea{min-height:110px;resize:vertical}
         <p>Mon&ndash;Thu 8am&ndash;5pm &middot; Fri 8am&ndash;12pm</p>
       </div>
       <div class="actions">
-        <a class="btn btn-gold" href="tel:+19102920442">Call 910-292-0442</a>
+        <a class="btn btn-primary" href="tel:+19102920442">Call 910-292-0442</a>
         <a class="btn btn-ghost" href="#consult">Request a Consultation</a>
       </div>
     </div>
@@ -590,8 +598,7 @@ textarea{min-height:110px;resize:vertical}
   <div class="wrap footer-grid">
     <div>
       <a class="brand" href="#top" aria-label="Chad Wunsch Law, back to top">
-        <span class="brand-mark" aria-hidden="true">CW</span>
-        <span class="brand-text"><span class="brand-name">Chad Wunsch Law</span><span class="brand-sub">Divorce &amp; Family Law</span></span>
+        <img class="brand-logo" src="mockup/chad-wunsch-logo.png" width="800" height="173" alt="Chad Wunsch Divorce &amp; Family Law">
       </a>
       <p>Where Experience and Compassion Meet.</p>
     </div>
@@ -620,9 +627,9 @@ textarea{min-height:110px;resize:vertical}
 </footer>
 
 <div class="mobile-bar" aria-label="Quick contact">
-  <a class="btn btn-gold" href="tel:+19102920442">
+  <a class="btn btn-primary" href="tel:+19102920442">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call Now</a>
-  <a class="btn btn-navy" href="#consult">Consultation</a>
+  <a class="btn btn-dark" href="#consult">Consultation</a>
 </div>
 
 <script>
