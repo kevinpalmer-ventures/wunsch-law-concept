@@ -147,6 +147,43 @@ a{color:var(--teal-ink)}
 .review-card figcaption .avatar{width:42px;height:42px;border-radius:50%;background:#e8eaf6;color:#3949ab;display:grid;place-items:center;font-weight:600}
 .review-card figcaption small{display:block;font-weight:400;color:var(--muted)}
 
+/* Reviews carousel */
+.review-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 48px;flex-wrap:wrap;margin-bottom:40px;position:relative}
+.review-side{max-width:640px}
+.review-side h2{margin-bottom:.35em}
+.review-side p{margin:0}
+.rc{position:relative}
+.rc-track{--per:3;--gap:24px;display:flex;gap:var(--gap);list-style:none;margin:0;padding:6px 2px 10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:20px;position:relative}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-track:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.rc-slide{flex:0 0 calc((100% - (var(--per) - 1) * var(--gap)) / var(--per));scroll-snap-align:start;display:flex}
+.rc .review-card{display:flex;flex-direction:column;width:100%;padding:clamp(24px,3vw,34px)}
+.rc .review-card blockquote{flex:1;font-size:clamp(1rem,.95rem + .25vw,1.12rem);line-height:1.6}
+.rc .review-card blockquote p{margin:0}
+.review-card figcaption .avatar-g{background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.review-card figcaption .avatar-g svg{width:20px;height:20px}
+.rc-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px}
+.rc-arrows{display:flex;gap:10px}
+.rc-btn{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);cursor:pointer;transition:background-color .2s, border-color .2s, color .2s}
+.rc-btn svg{width:20px;height:20px}
+.rc-btn:hover{background:#fff;color:var(--teal-ink);border-color:#fff}
+.rc-btn:focus-visible{outline:3px solid var(--teal-tint);outline-offset:3px}
+.rc-pause{width:40px;height:40px}
+.rc-pause svg{width:16px;height:16px}
+.rc-pause .i-play{display:none}
+.rc.is-stopped .rc-pause .i-play{display:inline}
+.rc.is-stopped .rc-pause .i-pause{display:none}
+.rc-dots{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.rc-dot{width:28px;height:28px;padding:0;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;border-radius:50%}
+.rc-dot::before{content:"";width:10px;height:10px;border-radius:999px;background:rgba(229,241,240,.45);transition:width .3s ease, background-color .3s ease}
+.rc-dot:hover::before{background:var(--mint)}
+.rc-dot[aria-current="true"]::before{width:26px;background:var(--teal-tint)}
+.rc-dot[aria-current="true"]{width:40px}
+.rc-dot:focus-visible{outline:3px solid var(--teal-tint);outline-offset:1px}
+@media (max-width:1099px){.rc-track{--per:2}}
+@media (max-width:719px){.rc-track{--per:1;--gap:16px}.review-head .btn{width:100%}.rc-controls{flex-wrap:wrap;row-gap:14px}.rc-dots{order:-1;flex-basis:100%}}
+@media (prefers-reduced-motion: reduce){.rc-track{scroll-behavior:auto}}
+
 /* Team */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .member{text-align:center;padding:36px 24px;border-radius:var(--radius);background:var(--mint);border:1px solid var(--line)}
@@ -412,34 +449,99 @@ textarea{min-height:110px;resize:vertical}
 
   <!-- REVIEW -->
   <section class="section review" id="reviews" aria-labelledby="reviews-title">
-    <div class="wrap review-grid">
-      <div class="review-side reveal">
-        <span class="eyebrow">Client experience</span>
-        <h2 id="reviews-title">Where experience and compassion meet</h2>
-        <p>Our clients trust us with some of the hardest moments in their lives. Here is what one client shared on Google about his custody case.</p>
-        <!-- PLACEHOLDER: link to the firm's Google Business Profile reviews page -->
-        <a class="btn btn-ghost" href="#reviews" style="margin-top:.6rem">Read reviews on Google</a>
-      </div>
-      <figure class="review-card reveal reveal-d1">
-        <div class="review-top">
-          <!-- PLACEHOLDER: confirm this review's actual star rating on Google before showing stars -->
-          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg>
-          </div>
-          <span class="g-badge">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg>
-            Google Review
-          </span>
+    <div class="wrap">
+      <div class="review-head reveal">
+        <div class="review-side">
+          <span class="eyebrow">Client experience</span>
+          <h2 id="reviews-title">Where experience and compassion meet</h2>
+          <p>Our clients trust us with some of the hardest moments in their lives. Here is what they have shared on Google.</p>
         </div>
-        <blockquote>
-          <p>&ldquo;Mr. Wunsch, Jessica, and Karen work diligently for their clients. I hired Mr. Wunsch a year ago after a 5-year custody battle that seemed not-so promising for me&hellip; Mr. Wunsch and his staff assured me that I was wrongfully treated and that they would work hard to ensure my ex would do right by our custody order&hellip; not only was my ex held accountable, Mr. Wunsch prompted the courts to modify my custody order and granted me primary/custodial parental rights. I am grateful for Chad, Jessica, and Karen for their hard work. If you go with this team, they will not let you down.&rdquo;</p>
-        </blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">C</span><span>Cory B.<small>Custody client &middot; via Google</small></span></figcaption>
-      </figure>
+        <!-- PLACEHOLDER: link to the firm's Google Business Profile reviews page -->
+        <a class="btn btn-ghost" href="#reviews">Read reviews on Google</a>
+      </div>
+      <!-- Reviews: Cory B. is from the live site's testimonial block; the other six are verbatim excerpts ("…" marks cuts) of 5-star Google reviews shown in the live site's Google reviews widget. Reviewer names are not shown in that widget, so none are given here. -->
+      <div class="rc reveal reveal-d1" id="review-carousel" role="region" aria-roledescription="carousel" aria-label="Client reviews">
+        <ul class="rc-track" id="rc-track" role="list" aria-live="off" tabindex="0">
+          <li class="rc-slide" role="group" aria-roledescription="slide" aria-label="1 of 7">
+            <figure class="review-card">
+              <div class="review-top">
+                <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div>
+                <span class="g-badge"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg> Google Review</span>
+              </div>
+              <blockquote><p>&ldquo;Mr. Wunsch, Jessica, and Karen work diligently for their clients.&hellip; Mr. Wunsch prompted the courts to modify my custody order and granted me primary/custodial parental rights. I am grateful for Chad, Jessica, and Karen for their hard work. If you go with this team, they will not let you down.&rdquo;</p></blockquote>
+              <figcaption><span class="avatar" aria-hidden="true">C</span><span>Cory B.<small>Custody client &middot; via Google</small></span></figcaption>
+            </figure>
+          </li>
+          <li class="rc-slide" role="group" aria-roledescription="slide" aria-label="2 of 7">
+            <figure class="review-card">
+              <div class="review-top">
+                <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div>
+                <span class="g-badge"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg> Google Review</span>
+              </div>
+              <blockquote><p>&ldquo;Chad Wunsch is, hands down, the best attorney I have ever had the pleasure of working with. Between initial meetings, to filings, to trial prep and out front in the courtroom, he was professional and well-versed to all my custody concerns!&hellip; The entire office is honest and sincere in their care for your case! 10/10 recommend!&rdquo;</p></blockquote>
+              <figcaption><span class="avatar avatar-g" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg></span><span>Google reviewer<small>5-star review &middot; via Google</small></span></figcaption>
+            </figure>
+          </li>
+          <li class="rc-slide" role="group" aria-roledescription="slide" aria-label="3 of 7">
+            <figure class="review-card">
+              <div class="review-top">
+                <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div>
+                <span class="g-badge"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg> Google Review</span>
+              </div>
+              <blockquote><p>&ldquo;I highly recommend Mr. Wunsch and his entire team. I hired Chad just 11 days before my custody trial, and I was incredibly impressed by how quickly and thoroughly he prepared my case.&hellip; Chad was truly invested in the outcome for my family; he is a sharp, strategic, and dedicated attorney.&rdquo;</p></blockquote>
+              <figcaption><span class="avatar avatar-g" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg></span><span>Google reviewer<small>5-star review &middot; via Google</small></span></figcaption>
+            </figure>
+          </li>
+          <li class="rc-slide" role="group" aria-roledescription="slide" aria-label="4 of 7">
+            <figure class="review-card">
+              <div class="review-top">
+                <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div>
+                <span class="g-badge"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg> Google Review</span>
+              </div>
+              <blockquote><p>&ldquo;If you need a divorce attorney who is experienced, trustworthy, and truly cares about their clients, I would absolutely recommend Chad.&rdquo;</p></blockquote>
+              <figcaption><span class="avatar avatar-g" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg></span><span>Google reviewer<small>5-star review &middot; via Google</small></span></figcaption>
+            </figure>
+          </li>
+          <li class="rc-slide" role="group" aria-roledescription="slide" aria-label="5 of 7">
+            <figure class="review-card">
+              <div class="review-top">
+                <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div>
+                <span class="g-badge"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg> Google Review</span>
+              </div>
+              <blockquote><p>&ldquo;Highly recommend Mr. Wunsch!&hellip; The communication from Mr. Wunsch and his team was everything you hope for when choosing an attorney.&hellip; I walked into trial confident because Mr. Wunsch made sure I was ready.&rdquo;</p></blockquote>
+              <figcaption><span class="avatar avatar-g" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg></span><span>Google reviewer<small>5-star review &middot; via Google</small></span></figcaption>
+            </figure>
+          </li>
+          <li class="rc-slide" role="group" aria-roledescription="slide" aria-label="6 of 7">
+            <figure class="review-card">
+              <div class="review-top">
+                <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div>
+                <span class="g-badge"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg> Google Review</span>
+              </div>
+              <blockquote><p>&ldquo;Chad was awesome to work with. He kept me well informed and was a straight shooter.&rdquo;</p></blockquote>
+              <figcaption><span class="avatar avatar-g" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg></span><span>Google reviewer<small>5-star review &middot; via Google</small></span></figcaption>
+            </figure>
+          </li>
+          <li class="rc-slide" role="group" aria-roledescription="slide" aria-label="7 of 7">
+            <figure class="review-card">
+              <div class="review-top">
+                <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg></div>
+                <span class="g-badge"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg> Google Review</span>
+              </div>
+              <blockquote><p>&ldquo;Unfortunately I had to hire Chad!&hellip; His staff was exceptional at handling my inquiries and directing me in what to do! Chad and his staff fast tracked my requests for court the following day and completed the job at hand&hellip; Thanks once again Chad&rdquo;</p></blockquote>
+              <figcaption><span class="avatar avatar-g" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.3-9.1z"/></svg></span><span>Google reviewer<small>5-star review &middot; via Google</small></span></figcaption>
+            </figure>
+          </li>
+        </ul>
+        <div class="rc-controls">
+          <button class="rc-btn rc-pause" type="button" aria-label="Pause automatic rotation" aria-controls="rc-track"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><g class="i-pause"><path d="M9 5v14M15 5v14"/></g><g class="i-play"><path d="M8 5l11 7-11 7z" fill="currentColor"/></g></svg></button>
+          <div class="rc-dots" role="group" aria-label="Choose review"></div>
+          <div class="rc-arrows">
+            <button class="rc-btn rc-prev" type="button" aria-label="Previous review" aria-controls="rc-track"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button class="rc-btn rc-next" type="button" aria-label="Next review" aria-controls="rc-track"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -655,6 +757,76 @@ textarea{min-height:110px;resize:vertical}
     },{rootMargin:'0px 0px -8% 0px',threshold:.08});
     els.forEach(function(e){io.observe(e)});
   }
+
+  // Reviews carousel: scroll-snap track + arrows, dots, keyboard, swipe, autoplay (WCAG 2.2.2 pause control)
+  (function(){
+    var rc=document.getElementById('review-carousel'); if(!rc) return;
+    var track=rc.querySelector('.rc-track'), slides=[].slice.call(track.children),
+        dotsWrap=rc.querySelector('.rc-dots'), pauseBtn=rc.querySelector('.rc-pause'),
+        reduce=window.matchMedia('(prefers-reduced-motion: reduce)'),
+        DELAY=6000, timer=null, settling=false, settleT=null, current=0, stopped=false, hovering=false, focused=false, touching=false, touchTimer=null, dots=[];
+    function perView(){var w=slides[0].getBoundingClientRect().width||1;return Math.max(1,Math.round((track.clientWidth+1)/(w+parseFloat(getComputedStyle(track).columnGap||0))));}
+    function maxIndex(){return Math.max(0,slides.length-perView());}
+    function buildDots(){
+      var n=maxIndex()+1; dotsWrap.innerHTML=''; dots=[];
+      for(var i=0;i<n;i++){(function(i){
+        var b=document.createElement('button'); b.type='button'; b.className='rc-dot';
+        b.setAttribute('aria-controls','rc-track');
+        var last=Math.min(slides.length,i+perView());
+        b.setAttribute('aria-label', perView()>1?('Show reviews '+(i+1)+' to '+last+' of '+slides.length):('Show review '+(i+1)+' of '+slides.length));
+        b.addEventListener('click',function(){goTo(i,true)});
+        dotsWrap.appendChild(b); dots.push(b);})(i);}
+      if(current>maxIndex()) current=maxIndex();
+      sync();
+    }
+    function sync(){
+      dots.forEach(function(d,i){d.setAttribute('aria-current',i===current?'true':'false')});
+      var pv=perView();
+      slides.forEach(function(s,i){var vis=i>=current&&i<current+pv;s.setAttribute('aria-hidden',vis?'false':'true');s.classList.toggle('is-active',vis)});
+    }
+    function goTo(i,user){
+      var max=maxIndex();
+      if(i>max) i=0; else if(i<0) i=max;
+      current=i; settling=true; clearTimeout(settleT); settleT=setTimeout(function(){settling=false},reduce.matches?150:1400);
+      track.scrollTo({left:slides[i].offsetLeft-slides[0].offsetLeft,behavior:reduce.matches?'auto':'smooth'});
+      sync();
+      if(user) restart();
+    }
+    function next(user){goTo(current+1,user)} function prev(user){goTo(current-1,user)}
+    function canPlay(){return !stopped&&!hovering&&!focused&&!touching&&!document.hidden;}
+    function tick(){if(canPlay()) next(false);}
+    function restart(){clearInterval(timer); timer=setInterval(tick,DELAY); rc.classList.toggle('is-paused',!canPlay()); track.setAttribute('aria-live',stopped?'polite':'off');}
+    rc.querySelector('.rc-next').addEventListener('click',function(){next(true)});
+    rc.querySelector('.rc-prev').addEventListener('click',function(){prev(true)});
+    pauseBtn.addEventListener('click',function(){
+      stopped=!stopped; rc.classList.toggle('is-stopped',stopped);
+      pauseBtn.setAttribute('aria-label',stopped?'Start automatic rotation':'Pause automatic rotation');
+      restart();
+    });
+    rc.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){e.preventDefault();next(true);}
+      else if(e.key==='ArrowLeft'){e.preventDefault();prev(true);}
+    });
+    rc.addEventListener('mouseenter',function(){hovering=true;restart()});
+    rc.addEventListener('mouseleave',function(){hovering=false;restart()});
+    rc.addEventListener('focusin',function(){focused=true;restart()});
+    rc.addEventListener('focusout',function(e){if(!rc.contains(e.relatedTarget)){focused=false;restart()}});
+    track.addEventListener('touchstart',function(){touching=true;settling=false;clearTimeout(touchTimer);restart()},{passive:true});
+    function endTouch(){clearTimeout(touchTimer);touchTimer=setTimeout(function(){touching=false;restart()},1500)}
+    track.addEventListener('touchend',endTouch,{passive:true}); track.addEventListener('touchcancel',endTouch,{passive:true});
+    // keep index in sync with manual swipes / scroll-snap
+    var st=null;
+    track.addEventListener('scrollend',function(){settling=false});
+    track.addEventListener('scroll',function(){clearTimeout(st);st=setTimeout(function(){
+      if(settling) return; // ignore our own smooth scrolls; only follow user swipes/drags
+      var x=track.scrollLeft, best=0, bd=Infinity;
+      slides.forEach(function(s,i){var d=Math.abs(s.offsetLeft-slides[0].offsetLeft-x);if(d<bd){bd=d;best=i}});
+      current=Math.min(best,maxIndex()); sync();},120)},{passive:true});
+    document.addEventListener('visibilitychange',restart);
+    var rt=null; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){buildDots();goTo(current,false)},150)});
+    buildDots(); restart();
+    window.__reviewCarousel={get index(){return current},get max(){return maxIndex()},get perView(){return perView()},get paused(){return !canPlay()}};
+  })();
 
   // Front-end-only form handling (mockup — nothing is sent)
   var form=document.getElementById('consult-form'),status=document.getElementById('form-status');
